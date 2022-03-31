@@ -1,0 +1,44 @@
+[debug] [2022-03-31T18:27:13.004Z] ----------------------------------------------------------------------
+[debug] [2022-03-31T18:27:13.006Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2022-03-31T18:27:13.007Z] CLI Version:   10.5.0
+[debug] [2022-03-31T18:27:13.007Z] Platform:      darwin
+[debug] [2022-03-31T18:27:13.007Z] Node Version:  v16.14.1
+[debug] [2022-03-31T18:27:13.008Z] Time:          Thu Mar 31 2022 20:27:13 GMT+0200 (Mitteleuropäische Sommerzeit)
+[debug] [2022-03-31T18:27:13.009Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-31T18:27:13.081Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-31T18:27:13.082Z] > authorizing via signed-in user (jojo.bender99@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/jonas/Coding/weather-app
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-03-31T18:27:50.634Z] Using project from CLI flag: weatherapp-490bf
+[debug] [2022-03-31T18:27:50.636Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/weatherapp-490bf [none]
+[debug] [2022-03-31T18:27:50.915Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/weatherapp-490bf 200
+[debug] [2022-03-31T18:27:50.915Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/weatherapp-490bf {"projectId":"weatherapp-490bf","projectNumber":"740918655970","displayName":"WeatherApp","name":"projects/weatherapp-490bf","resources":{"hostingSite":"weatherapp-490bf"},"state":"ACTIVE"}
+[info] i  Using project weatherapp-490bf (WeatherApp) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
