@@ -1,1 +1,84 @@
-/*  */
+h1 {
+    color: black;
+    font-weight: bold;
+    font-size: 4rem;
+    letter-spacing: 0.02em;
+    padding: 0 0 30px 0;
+}
+
+#submit {
+    margin: 10px;
+}
+   
+   
+input {
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
+  }
+  
+  /* SECTION #1
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .top-banner {
+    color: var(--text_light);
+  }
+  
+  .top-banner form {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .top-banner form input {
+    font-size: 1.5rem;
+    height: 40px;
+    padding: 5px 5px 10px;
+    border-bottom: 1px solid;
+  }
+  
+  .top-banner form input::placeholder {
+    color: currentColor; 
+  }
+
+  /* SECTION #2
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .top-content {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+
+
+  /* SECTION #3
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+ #city {
+     color: black;
+     font-size: 3rem;
+ }
+
+ #date {
+     color: black;
+     font-size: 1.2rem;
+ }
+
+ .column {
+    float: left;
+    width: 50%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+img {
+    width: 100%;
+}
+
+#temp {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#left {
+    border-right: 1px solid;
+}

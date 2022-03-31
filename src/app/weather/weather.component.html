@@ -1,16 +1,59 @@
-<H1>Login</H1>
 
-<div class="container-fluid"  (keyup.enter)=APIRequest()>
-  <!-- <div class="altert alert-warning" *ngIf="invalidLogin">{{errorMessage}}</div> -->
 
-  <div class="form-group">
-    <label>City</label>
-    <input type="text" class="form-control" name="username" [(ngModel)]="location" placeholder="City">
-  </div>
+<!-- <h1>Weather</h1>
 
-  <div>
-    <button (click)=APIRequest() class="btn btn-success" id="login">Search</button>
-  </div>  
+<section class="top-banner">
+<div class="container"  (keyup.enter)=APIRequest()>
+   <div class="altert alert-warning" *ngIf="invalidCity">{{errorMessage}}</div> 
+
+  <form>
+    <input type="text"   name="username" [(ngModel)]="location" placeholder="Search by Location" autocomplete="off" >
+    <button (click)=APIRequest()  class="btn btn-light" id="submit">SUBMIT</button>
+  </form>  
 </div>
+</section> -->
+
+<section class="top-content">
+    <div class="container" id="city">
+        {{weatherData.name}} , {{weatherData.sys.country}} <br>
+    </div> 
+    <div class="container" id="date">
+        {{todays}}
+    </div>
+</section>
+
+
+<section class="content">
+<div class="row align-items-center">
+    <div class="column" id="left">
+        <table>
+            <tr>
+                <td>
+                    <img src="http://openweathermap.org/img/wn/{{weatherData.weather[0].icon}}@2x.png">
+                </td>
+                <td>
+                    <div id="temp">{{weatherData.main.temp}} °C </div> 
+                    {{weatherData.weather[0].description}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="column">
+        <table >
+            <tr>
+                <td>{{weatherData.main.temp}}</td>
+                <td>{{weatherData.main.temp}}</td>
+                <td>{{weatherData.main.temp}}</td>
+            </tr>
+            <tr>
+                <td>{{weatherData.main.temp}}</td>
+                <td>{{weatherData.main.temp}}</td>
+                <td>{{weatherData.main.temp}}</td>
+            </tr>
+        </table>
+        {{weatherData.main.temp}}
+    </div>
+  </div>
+</section>
 
 
