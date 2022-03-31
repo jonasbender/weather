@@ -15,6 +15,8 @@ a {
 
 #submit {
     margin: 10px;
+    background-color: darkslategrey;
+    color: #fff;
 }
    
    
@@ -29,7 +31,12 @@ input {
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   .top-banner {
     color: var(--text_light);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  
   
   .top-banner form {
     position: relative;
@@ -45,5 +52,5 @@ input {
   }
   
   .top-banner form input::placeholder {
-    color: currentColor; 
+    color: darkslategrey; 
   }

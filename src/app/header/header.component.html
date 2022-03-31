@@ -2,7 +2,7 @@
 
 
 <section class="top-banner">
-<div class="container"  (keyup.enter)=Submit()>
+<div class="container" id="searchbar" (keyup.enter)=Submit()>
   <form>
     <input type="text"   name="username" [(ngModel)]="location" placeholder="Search by Location" autocomplete="off" >
     <button (click)=Submit()  class="btn btn-light" id="submit">SUBMIT</button>

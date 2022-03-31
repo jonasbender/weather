@@ -13,6 +13,8 @@
 </div>
 </section> -->
 
+
+
 <section class="top-content">
     <div class="container" id="city">
         {{weatherData.name}} , {{weatherData.sys.country}} <br>
@@ -26,13 +28,13 @@
 <section class="content">
 <div class="row align-items-center">
     <div class="column" id="left">
-        <table>
+        <table id="lefttable">
             <tr>
                 <td>
                     <img src="http://openweathermap.org/img/wn/{{weatherData.weather[0].icon}}@2x.png">
                 </td>
                 <td>
-                    <div id="temp">{{weatherData.main.temp}}° </div> 
+                    <div id="temp">{{(weatherData.main.temp).toFixed(0)}}° </div> 
                     {{weatherData.weather[0].description}}
                 </td>
             </tr>
@@ -41,8 +43,8 @@
     <div class="column">
         <table id="table1">
             <tr id="data">
-                <td id="datacol">{{weatherData.main.temp_max}}°</td>
-                <td id="datacol">{{weatherData.wind.speed}}</td>
+                <td id="datacol">{{(weatherData.main.temp_max).toFixed(0)}}°</td>
+                <td id="datacol">{{weatherData.wind.speed.toFixed(1)}} km/h</td>
                 <td id="datacol">{{sunrise}}</td>
             </tr>
             <tr id="description">
@@ -51,13 +53,13 @@
                 <td id="desccol">Sunrise</td>
             </tr>
             <tr id="data">
-                <td id="datacol">{{weatherData.main.temp_min}}°</td>
-                <td id="datacol">{{weatherData.wind.speed}} %</td>
+                <td id="datacol">{{(weatherData.main.temp_min).toFixed(0)}}°</td>
+                <td id="datacol">{{forecastData.daily[0].pop*100}} %</td>
                 <td id="datacol">{{sunset}}</td>
             </tr>
             <tr id="description">
                 <td id="desccol">Low</td>
-                <td id="desccol">Rain</td>
+                <td id="desccol">Chance of Rain</td>
                 <td id="desccol">Sunset</td>
             </tr>
         </table>
@@ -65,4 +67,54 @@
   </div>
 </section>
 
+<div id="forecast-header">Next 5 days</div>
 
+<section class="forecast">
+    <div class="container">
+        <table class="table">
+            <tbody>
+                
+                <tr >
+                    <td id="day">{{countDays(1)}}</td>
+                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[1].weather[0].icon}}@2x.png"></td>
+                    <td><div id="forcastData">{{forecastData.daily[1].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[1].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[1].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[1].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
+                </tr>
+                <tr >
+                    <td id="day">{{countDays(2)}}</td>
+                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[2].weather[0].icon}}@2x.png"></td>
+                    <td><div id="forcastData">{{forecastData.daily[2].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[2].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[2].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[2].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
+                </tr>
+                <tr >
+                    <td id="day">{{countDays(3)}}</td>
+                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[3].weather[0].icon}}@2x.png"></td>
+                    <td><div id="forcastData">{{forecastData.daily[3].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[3].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[3].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[3].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
+                </tr>
+                <tr >
+                    <td id="day">{{countDays(4)}}</td>
+                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[4].weather[0].icon}}@2x.png"></td>
+                    <td><div id="forcastData">{{forecastData.daily[4].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[4].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[4].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[4].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
+                </tr>
+                <tr >
+                    <td id="day">{{countDays(5)}}</td>
+                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[5].weather[0].icon}}@2x.png"></td>
+                    <td><div id="forcastData">{{forecastData.daily[5].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[5].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[5].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[5].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, SelectMultipleControlValueAccessor } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WeatherService } from '../service/weather.service';
+
+
+export class Day {
+  constructor(
+    public day_of_week: string
+  ) {
+
+  }
+}
 
 @Component({
   selector: 'app-weather',
@@ -12,13 +21,16 @@ export class WeatherComponent implements OnInit {
   
   
   public weatherData : any;
+  public forecastData : any;
   //public location!: string;
-  errorMessage = "Invalid City"
+  errorMessage = "Invalid City! Please try again."
   invalidCity = false;
   today = new Date();
   location!: string;
 
   rise_unix = 0;
+
+  
 
   
 
@@ -32,8 +44,19 @@ export class WeatherComponent implements OnInit {
   month = this.months[this.today.getMonth()];
   year = this.today.getFullYear();
   num = this.today.getDay();
+  dayOfMonth = this.today.getDate();
+
+  forecastDays! : Day[];
+
+  numbers : Number[] = [1,2,3,4,5,6,7];
   
-  todays = this.day + " " + this.num +" " + this.month;
+  
+  
+
+  lat! : any;
+  long! : any;
+  
+  todays = this.day + " " + this.dayOfMonth +" " + this.month;
 
   sunrise!: string;
   sunset!: string;
@@ -41,7 +64,8 @@ export class WeatherComponent implements OnInit {
 
   constructor(
     private weatherService : WeatherService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, 
+    private router : Router
   ) { }
 
   
@@ -50,10 +74,11 @@ export class WeatherComponent implements OnInit {
 
     this.route.queryParams
       .subscribe(params => {
-        console.log(params); // { orderby: "price" }
+        console.log(params); 
         this.location = params['location'];
       }
     );
+
 
     this.weatherService.getWeather(this.location).subscribe(
       data => {
@@ -66,10 +91,25 @@ export class WeatherComponent implements OnInit {
         
         this.sunrise = this.formatDate(this.weatherData.sys.sunrise);
         this.sunset = this.formatDate(this.weatherData.sys.sunset);
-        
-        
 
-        
+        this.lat = this.weatherData.coord.lat;
+        this.long = this.weatherData.coord.lon;
+
+        console.log(this.lat);
+        console.log(this.long);
+
+        this.weatherService.getForecast(this.lat, this.long).subscribe(
+          data => {
+            console.log(this.lat);
+            console.log(this.long);
+            this.forecastData = data;
+            console.log(this.forecastData);
+            
+            this.sunset = this.formatDate(this.weatherData.sys.sunset);
+            
+
+          }
+        )
 
       },
       error => {
@@ -77,12 +117,33 @@ export class WeatherComponent implements OnInit {
       }
     )
 
+    
+
   }
+
 
   formatDate(s: number) {
     const a = new Date(s * 1000);
     return a.toLocaleTimeString("en-GB", {hour: '2-digit', minute: '2-digit'});
   }
+
+  countDays(i : number) {
+    return this.days[(i + this.num) % 7];
+  }
+
+  
+
+
+  // forecastAPI() {
+  //   this.weatherService.getForecast(this.lat, this.long).subscribe(
+  //     data => {
+  //       console.log(this.lat);
+  //       console.log(this.long);
+  //       this.forecastData = data;
+  //       console.log(this.forecastData);
+  //     }
+  //   )
+  // }
 
   // APIRequest() {
 
@@ -100,5 +161,7 @@ export class WeatherComponent implements OnInit {
   //     }
   //   )
   // }
+
+  
 
 }

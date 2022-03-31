@@ -38,13 +38,13 @@ input {
   }
   
   .top-banner form input::placeholder {
-    color: currentColor; 
+    color: grey; 
   }
 
   /* SECTION #2
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   .top-content {
-      padding-top: 20px;
+      padding-top: 40px;
       padding-bottom: 20px;
   }
 
@@ -90,8 +90,10 @@ td {
 }
 
 #table1 {
-    margin: 40px;
-    width: 100%;
+    width: 90%;
+    padding-left: 20%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #data {
@@ -106,3 +108,46 @@ td {
 #desccol {
     padding-bottom: 10px;
 }
+
+#lefttable {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* SECTION #3
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+  #forecast-header {
+      font-size: 1.5rem;
+      width: max-content;
+      padding: 10px;
+      padding-left: 30px;
+      padding-right: 30px;
+      border-bottom: 1px solid;
+      margin-bottom: 20px;
+  }
+
+
+
+  .forecast img {
+    width: 30%;
+    vertical-align: middle;
+    margin: 0%;
+    padding: 0;
+  }
+
+  #day {
+      font-weight: bold;
+      vertical-align: middle;
+  }
+
+  #forcastDesc {
+      font-size: 0.9rem;
+      font-weight: 300;
+  }
+
+  .forecast td {
+      vertical-align: middle;
+  }
+
