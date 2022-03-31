@@ -82,3 +82,27 @@ img {
 #left {
     border-right: 1px solid;
 }
+
+td {
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#table1 {
+    margin: 40px;
+    width: 100%;
+}
+
+#data {
+    font-size: 1.5rem;
+    padding-top: 50px;
+}
+
+#datacol {
+    padding-top: 10px;
+}
+
+#desccol {
+    padding-bottom: 10px;
+}

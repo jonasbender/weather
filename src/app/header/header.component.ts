@@ -20,7 +20,10 @@ export class HeaderComponent implements OnInit {
 
 
   Submit() {
-    this.router.navigate(["weather"], {queryParams: {location:this.location}});
+    this.router.navigate(["weather"], {queryParams: {location:this.location}})
+    .then(() => {
+      window.location.reload();
+    });
   }
 
 

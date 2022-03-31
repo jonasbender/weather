@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, SelectMultipleControlValueAccessor } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { WeatherService } from '../service/weather.service';
 
@@ -16,10 +16,15 @@ export class WeatherComponent implements OnInit {
   errorMessage = "Invalid City"
   invalidCity = false;
   today = new Date();
+  location!: string;
+
+  rise_unix = 0;
+
+  
 
   //location = String(sessionStorage.getItem("city"));
   //location = String(sessionStorage.getItem("city"));
-  location!: string;
+  
   
   days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -30,11 +35,16 @@ export class WeatherComponent implements OnInit {
   
   todays = this.day + " " + this.num +" " + this.month;
 
+  sunrise!: string;
+  sunset!: string;
+
 
   constructor(
     private weatherService : WeatherService,
     private route: ActivatedRoute
   ) { }
+
+  
 
   ngOnInit(): void {
 
@@ -50,13 +60,28 @@ export class WeatherComponent implements OnInit {
         console.log(this.location);
         this.weatherData = data;
         console.log(this.weatherData);
+
+
+        this.rise_unix = this.weatherData.sys.sunrise;
         
+        this.sunrise = this.formatDate(this.weatherData.sys.sunrise);
+        this.sunset = this.formatDate(this.weatherData.sys.sunset);
+        
+        
+
+        
+
       },
       error => {
         this.invalidCity = true;
       }
     )
 
+  }
+
+  formatDate(s: number) {
+    const a = new Date(s * 1000);
+    return a.toLocaleTimeString("en-GB", {hour: '2-digit', minute: '2-digit'});
   }
 
   // APIRequest() {

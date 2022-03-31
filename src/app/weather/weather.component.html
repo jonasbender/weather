@@ -32,26 +32,35 @@
                     <img src="http://openweathermap.org/img/wn/{{weatherData.weather[0].icon}}@2x.png">
                 </td>
                 <td>
-                    <div id="temp">{{weatherData.main.temp}} °C </div> 
+                    <div id="temp">{{weatherData.main.temp}}° </div> 
                     {{weatherData.weather[0].description}}
                 </td>
             </tr>
         </table>
     </div>
     <div class="column">
-        <table >
-            <tr>
-                <td>{{weatherData.main.temp}}</td>
-                <td>{{weatherData.main.temp}}</td>
-                <td>{{weatherData.main.temp}}</td>
+        <table id="table1">
+            <tr id="data">
+                <td id="datacol">{{weatherData.main.temp_max}}°</td>
+                <td id="datacol">{{weatherData.wind.speed}}</td>
+                <td id="datacol">{{sunrise}}</td>
             </tr>
-            <tr>
-                <td>{{weatherData.main.temp}}</td>
-                <td>{{weatherData.main.temp}}</td>
-                <td>{{weatherData.main.temp}}</td>
+            <tr id="description">
+                <td id="desccol">High</td>
+                <td id="desccol">Wind</td>
+                <td id="desccol">Sunrise</td>
+            </tr>
+            <tr id="data">
+                <td id="datacol">{{weatherData.main.temp_min}}°</td>
+                <td id="datacol">{{weatherData.wind.speed}} %</td>
+                <td id="datacol">{{sunset}}</td>
+            </tr>
+            <tr id="description">
+                <td id="desccol">Low</td>
+                <td id="desccol">Rain</td>
+                <td id="desccol">Sunset</td>
             </tr>
         </table>
-        {{weatherData.main.temp}}
     </div>
   </div>
 </section>
