@@ -10,7 +10,9 @@ export class WeatherService {
     private http : HttpClient) { }
 
 
-  getWeather(location: any){
+  getWeather(location: string){
     return this.http.get(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=1521ecfac0519d456cdaef8785a13544&units=metric`);
   }
+
+  
 }
