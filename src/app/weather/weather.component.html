@@ -1,23 +1,8 @@
 
 
-<!-- <h1>Weather</h1>
-
-<section class="top-banner">
-<div class="container"  (keyup.enter)=APIRequest()>
-   <div class="altert alert-warning" *ngIf="invalidCity">{{errorMessage}}</div> 
-
-  <form>
-    <input type="text"   name="username" [(ngModel)]="location" placeholder="Search by Location" autocomplete="off" >
-    <button (click)=APIRequest()  class="btn btn-light" id="submit">SUBMIT</button>
-  </form>  
-</div>
-</section > -->
-
-
-
 <section class="top-content">
     <div class="container" id="city">
-        {{weatherData.name}} , {{weatherData.sys.country}} <br>
+        {{weatherData.name}}, {{weatherData.sys.country}} <br>
     </div> 
     <div class="container" id="date">
         {{todays}}
@@ -25,13 +10,16 @@
 </section>
 
 
+
+
 <section class="content">
+<div class="container">
 <div class="row align-items-center">
     <div class="column" id="left">
         <table id="lefttable">
             <tr>
                 <td>
-                    <img src="http://openweathermap.org/img/wn/{{weatherData.weather[0].icon}}@2x.png">
+                    <img src="https://openweathermap.org/img/wn/{{weatherData.weather[0].icon}}@2x.png">
                 </td>
                 <td>
                     <div id="temp">{{(weatherData.main.temp).toFixed(0)}}° </div> 
@@ -54,7 +42,7 @@
             </tr>
             <tr id="data">
                 <td id="datacol">{{(weatherData.main.temp_min).toFixed(0)}}°</td>
-                <td id="datacol">{{forecastData.daily[0].pop*100}} %</td>
+                <td id="datacol">{{(forecastData.daily[0].pop*100).toFixed(0)}} %</td>
                 <td id="datacol">{{sunset}}</td>
             </tr>
             <tr id="description">
@@ -65,56 +53,54 @@
         </table>
     </div>
   </div>
+</div>
 </section>
 
-<div id="forecast-header">Next 5 days</div>
+<section class="hourly">
+    <table class="hourly-table">
+    <td>
+        <div class="wrapper">
+            <div>Now</div>
+            <div><img src="https://openweathermap.org/img/wn/{{forecastData.daily[7].weather[0].icon}}@2x.png"></div>
+            <div id="pop">{{(forecastData.hourly[0].pop*100).toFixed(0)}}%</div>
+            <div id="tem">{{forecastData.hourly[0].temp}}°</div>
+        </div>
+    </td>   
+    <td *ngFor="let k of hourly">
+        <div class="wrapper">
+            <div id="hours">{{countHours(k)}}:00</div>
+            <div><img src="https://openweathermap.org/img/wn/{{forecastData.hourly[k].weather[0].icon}}@2x.png"></div>
+            <div id="pop">{{(forecastData.hourly[k].pop*100).toFixed(0)}}%</div>
+        <div id="tem">{{forecastData.hourly[k].temp}}°</div>
+    </div>
+    </td>
+    </table>    
+
+</section>
+
+<div id="forecast-header">Next days</div>
 
 <section class="forecast">
     <div class="container">
         <table class="table">
-            <tbody>
+            <thead>
+
+            </thead>
+            <tbody >
                 
-                <tr >
-                    <td id="day">{{countDays(1)}}</td>
-                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[1].weather[0].icon}}@2x.png"></td>
-                    <td><div id="forcastData">{{forecastData.daily[1].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[1].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[1].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[1].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
+                <tr *ngFor="let i of daily">
+                    <td id="day">{{countDays(i)}}</td>
+                    <td><img id="forecastIcon" src="https://openweathermap.org/img/wn/{{forecastData.daily[i].weather[0].icon}}@2x.png"></td>
+                    <td><div id="forcastData">{{forecastData.daily[i].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[i].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
+                    <td><div id="forcastData">{{forecastData.daily[i].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
+                    <td><div id="forcastData">{{(forecastData.daily[i].pop*100).toFixed(0)}}%</div> <div id="forcastDesc">Rain</div></td>
                 </tr>
-                <tr >
-                    <td id="day">{{countDays(2)}}</td>
-                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[2].weather[0].icon}}@2x.png"></td>
-                    <td><div id="forcastData">{{forecastData.daily[2].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[2].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[2].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[2].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
-                </tr>
-                <tr >
-                    <td id="day">{{countDays(3)}}</td>
-                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[3].weather[0].icon}}@2x.png"></td>
-                    <td><div id="forcastData">{{forecastData.daily[3].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[3].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[3].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[3].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
-                </tr>
-                <tr >
-                    <td id="day">{{countDays(4)}}</td>
-                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[4].weather[0].icon}}@2x.png"></td>
-                    <td><div id="forcastData">{{forecastData.daily[4].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[4].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[4].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[4].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
-                </tr>
-                <tr >
-                    <td id="day">{{countDays(5)}}</td>
-                    <td><img id="forecastIcon" src="http://openweathermap.org/img/wn/{{forecastData.daily[5].weather[0].icon}}@2x.png"></td>
-                    <td><div id="forcastData">{{forecastData.daily[5].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[5].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[5].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[5].pop*100}}%</div> <div id="forcastDesc">Rain</div></td>
-                </tr>
+                
             </tbody>
         </table>
     </div>
 </section>
+
+
+

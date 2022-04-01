@@ -4,7 +4,7 @@ h1 {
     font-weight: bold;
     font-size: 4rem;
     letter-spacing: 0.02em;
-    padding: 0 0 30px 0;
+    padding: 0 0 0px 0;
     text-align: center;
 }
 
@@ -29,28 +29,30 @@ input {
 
 /* SECTION #1
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  .top-banner {
+  #top-banner {
     color: var(--text_light);
-    width: fit-content;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    background-color: #fff;
+    margin-top: 50px;
+    padding-top: 30px;
   }
-
   
   
-  .top-banner form {
+  #top-banner form {
     position: relative;
     display: flex;
     align-items: center;
   }
   
-  .top-banner form input {
+  #top-banner form input {
     font-size: 1.5rem;
     height: 40px;
     padding: 5px 5px 10px;
     border-bottom: 1px solid;
   }
   
-  .top-banner form input::placeholder {
+  #top-banner form input::placeholder {
     color: darkslategrey; 
   }

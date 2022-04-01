@@ -1,7 +1,7 @@
 <h1> <a routerLink="/home"> Weather</a></h1>
 
 
-<section class="top-banner">
+<section class="top-banner sticky-top" id="top-banner">
 <div class="container" id="searchbar" (keyup.enter)=Submit()>
   <form>
     <input type="text"   name="username" [(ngModel)]="location" placeholder="Search by Location" autocomplete="off" >

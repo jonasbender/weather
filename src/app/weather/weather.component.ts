@@ -44,11 +44,14 @@ export class WeatherComponent implements OnInit {
   month = this.months[this.today.getMonth()];
   year = this.today.getFullYear();
   num = this.today.getDay();
+  hour = this.today.getHours();
   dayOfMonth = this.today.getDate();
 
   forecastDays! : Day[];
 
-  numbers : Number[] = [1,2,3,4,5,6,7];
+  daily : any[] = [1,2,3,4,5,6,7];
+
+  hourly : any[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,24]
   
   
   
@@ -129,6 +132,12 @@ export class WeatherComponent implements OnInit {
 
   countDays(i : number) {
     return this.days[(i + this.num) % 7];
+  }
+
+  countHours(i : number) {
+    if(this.hour + i > 23)
+      return this.hour + i-24;
+    return i + this.hour;
   }
 
   

@@ -20,7 +20,7 @@ export class WeatherService {
   }
 
   getForecast(lat: string, long: string) {
-    return this.http.get('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon='+ long + '&exclude=current,minutely,hourly,alerts&appid=1521ecfac0519d456cdaef8785a13544&units=metric');
+    return this.http.get('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon='+ long + '&exclude=current,minutely,alerts&appid=1521ecfac0519d456cdaef8785a13544&units=metric');
   }
   
   }
