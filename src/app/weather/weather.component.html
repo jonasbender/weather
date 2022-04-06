@@ -63,7 +63,7 @@
             <div>Now</div>
             <div><img src="https://openweathermap.org/img/wn/{{forecastData.daily[7].weather[0].icon}}@2x.png"></div>
             <div id="pop">{{(forecastData.hourly[0].pop*100).toFixed(0)}}%</div>
-            <div id="tem">{{forecastData.hourly[0].temp}}°</div>
+            <div id="tem">{{forecastData.hourly[0].temp.toFixed(0)}}°</div>
         </div>
     </td>   
     <td *ngFor="let k of hourly">
@@ -71,7 +71,7 @@
             <div id="hours">{{countHours(k)}}:00</div>
             <div><img src="https://openweathermap.org/img/wn/{{forecastData.hourly[k].weather[0].icon}}@2x.png"></div>
             <div id="pop">{{(forecastData.hourly[k].pop*100).toFixed(0)}}%</div>
-        <div id="tem">{{forecastData.hourly[k].temp}}°</div>
+        <div id="tem">{{forecastData.hourly[k].temp.toFixed(0)}}°</div>
     </div>
     </td>
     </table>    
