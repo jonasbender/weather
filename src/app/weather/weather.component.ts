@@ -89,8 +89,6 @@ export class WeatherComponent implements OnInit {
         this.weatherData = data;
         console.log(this.weatherData);
 
-
-        this.rise_unix = this.weatherData.sys.sunrise;
         
         this.sunrise = this.formatDate(this.weatherData.sys.sunrise);
         this.sunset = this.formatDate(this.weatherData.sys.sunset);
@@ -103,14 +101,8 @@ export class WeatherComponent implements OnInit {
 
         this.weatherService.getForecast(this.lat, this.long).subscribe(
           data => {
-            console.log(this.lat);
-            console.log(this.long);
             this.forecastData = data;
             console.log(this.forecastData);
-            
-            this.sunset = this.formatDate(this.weatherData.sys.sunset);
-            
-
           }
         )
 
@@ -140,36 +132,6 @@ export class WeatherComponent implements OnInit {
     return i + this.hour;
   }
 
-  
-
-
-  // forecastAPI() {
-  //   this.weatherService.getForecast(this.lat, this.long).subscribe(
-  //     data => {
-  //       console.log(this.lat);
-  //       console.log(this.long);
-  //       this.forecastData = data;
-  //       console.log(this.forecastData);
-  //     }
-  //   )
-  // }
-
-  // APIRequest() {
-
-    
-
-  //   this.weatherService.getWeather(this.location).subscribe(
-  //     data => {
-  //       console.log(this.location);
-  //       this.weatherData = data;
-  //       console.log(this.weatherData);
-        
-  //     },
-  //     error => {
-  //       this.invalidCity = true;
-  //     }
-  //   )
-  // }
 
   
 
