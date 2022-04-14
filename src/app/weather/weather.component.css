@@ -116,9 +116,53 @@ td {
     }
 }
 
+ /* SECTION #4
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+  .hourly-item {
+    width: 10%;
+    text-align: center;
+}
 
-/* SECTION #3
+.hourly img {
+    width: 100%;
+    
+}
+
+.hourly-table {
+    display: block;
+  overflow-x: scroll;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.hourly-table tbody {
+    display: table;
+    width: 100%;
+}
+
+.hourly-table td {
+    width: 200px;
+    align-content: center;
+    text-align: center;
+}
+
+.hourly-table #pop {
+    font-size: 0.6rem;
+}
+
+.hourly-table #tem {
+    font-size: 1rem;
+}
+
+.wrapper {
+    padding: 20px;
+    width: 100px;
+}
+
+/* SECTION #5
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   #forecast-header {
@@ -128,6 +172,8 @@ td {
       padding-left: 20px;
       
   }
+
+ 
 
   .forecast table {
       width: 100%;
@@ -150,60 +196,43 @@ td {
       vertical-align: middle;
   }
 
-  #forcastDesc {
-      font-size: 0.9rem;
-      font-weight: 300;
-  }
 
   .forecast td {
       vertical-align: middle;
   }
 
+  #bar {
+      width: 30%;
+      position: relative;
+  }
 
-  /* SECTION #3
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-  .hourly-item {
-      width: 10%;
+  .minTemp {
       text-align: center;
+
   }
 
-  .hourly img {
-      width: 100%;
-      
-  }
-
-  .hourly-table {
-      display: block;
-    overflow-x: scroll;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-  }
-
-  .hourly-table tbody {
-      display: table;
-      width: 100%;
-  }
-
-  .hourly-table td {
-      width: 200px;
-      align-content: center;
+  .maxTemp {
       text-align: center;
+    margin-left: 30%;
   }
 
-  .hourly-table #pop {
-      font-size: 0.6rem;
-  }
-
-  .hourly-table #tem {
-      font-size: 1rem;
-  }
-  
-  .wrapper {
-      padding: 20px;
-      width: 100px;
-  }
+ 
   
 
+.totalbar {
+    width: 100%;
+    height: 10px;
+    background-color: lightgrey;
+    border-radius: 10px;
+    position: absolute;
+    vertical-align: center;
+}
+
+.weatherbar {
+    height: 10px;
+    background-color: darkslategray;
+    border-radius: 10px;
+    vertical-align: tex;
+    position: absolute;
+    margin-bottom: 100px;
+}

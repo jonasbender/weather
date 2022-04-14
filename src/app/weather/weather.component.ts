@@ -24,11 +24,15 @@ export class WeatherComponent implements OnInit {
   public forecastData : any;
   //public location!: string;
   errorMessage = "Invalid City! Please try again."
+  rainForecast = true;
   invalidCity = false;
   today = new Date();
   location!: string;
 
   rise_unix = 0;
+
+  maxTemp : number = 0;
+  minTemp : number = 100;
 
   
 
@@ -103,7 +107,9 @@ export class WeatherComponent implements OnInit {
           data => {
             this.forecastData = data;
             console.log(this.forecastData);
+            
           }
+          
         )
 
       },
@@ -130,6 +136,38 @@ export class WeatherComponent implements OnInit {
     if(this.hour + i > 23)
       return this.hour + i-24;
     return i + this.hour;
+  }
+
+  rainCheck(k : number) {
+    if(this.forecastData.hourly[k].pop == 0)
+      return false; 
+    else return true;
+  }
+
+  maxTempCalc() {
+    for(let i=0; i<7; i++){
+      this.maxTemp = Math.max(this.forecastData.daily[i+1].temp.max.toFixed(0), this.maxTemp);
+    }
+    return this.maxTemp;
+  }
+
+  minTempCalc() {
+    for(let i=0; i<7; i++){
+      this.minTemp = Math.min(this.forecastData.daily[i+1].temp.min.toFixed(0), this.minTemp);
+    }
+    return this.minTemp;
+  }
+
+  barwidth() {
+    return (this.maxTempCalc() - this.minTempCalc());
+  }
+
+  width(i: string | number) {
+    return (((this.forecastData.daily[i].temp.max.toFixed(0) - this.forecastData.daily[i].temp.min.toFixed(0)) / this.barwidth())*100);
+  }
+
+  margin(i: string | number){
+    return (((this.forecastData.daily[i].temp.min.toFixed(0) - this.minTempCalc()) / this.barwidth())*100)
   }
 
 

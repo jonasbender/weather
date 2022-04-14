@@ -70,7 +70,9 @@
         <div class="wrapper">
             <div id="hours">{{countHours(k)}}:00</div>
             <div><img src="https://openweathermap.org/img/wn/{{forecastData.hourly[k].weather[0].icon}}@2x.png"></div>
-            <div id="pop">{{(forecastData.hourly[k].pop*100).toFixed(0)}}%</div>
+            <div id="pop" *ngIf="rainCheck(k)">{{(forecastData.hourly[k].pop*100).toFixed(0)}}%</div>
+            <div id="pop" *ngIf="!rainCheck(k)"> &nbsp;</div>
+            
         <div id="tem">{{forecastData.hourly[k].temp.toFixed(0)}}°</div>
     </div>
     </td>
@@ -79,6 +81,8 @@
 </section>
 
 <div id="forecast-header">Next days</div>
+
+
 
 <section class="forecast">
     <div class="container">
@@ -91,10 +95,10 @@
                 <tr *ngFor="let i of daily">
                     <td id="day">{{countDays(i)}}</td>
                     <td><img id="forecastIcon" src="https://openweathermap.org/img/wn/{{forecastData.daily[i].weather[0].icon}}@2x.png"></td>
-                    <td><div id="forcastData">{{forecastData.daily[i].temp.min.toFixed(0)}}°</div> <div id="forcastDesc">Low</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[i].temp.max.toFixed(0)}}°</div> <div id="forcastDesc">High</div></td>
-                    <td><div id="forcastData">{{forecastData.daily[i].wind_speed.toFixed(1)}}km/h</div> <div id="forcastDesc">Wind</div></td>
-                    <td><div id="forcastData">{{(forecastData.daily[i].pop*100).toFixed(0)}}%</div> <div id="forcastDesc">Rain</div></td>
+                    <td ><div class="minTemp">{{forecastData.daily[i].temp.min.toFixed(0)}}°</div> </td>
+                    <td id="bar"><span class="totalbar"></span>
+                        <span class="weatherbar" [style.width.%]="width(i)" [style.margin-left.%]="margin(i)"></span></td>
+                    <td ><div class="maxTemp">{{forecastData.daily[i].temp.max.toFixed(0)}}°</div></td>
                 </tr>
                 
             </tbody>
