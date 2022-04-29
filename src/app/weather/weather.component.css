@@ -185,7 +185,7 @@ td {
 
 
   .forecast img {
-    width: 30%;
+    width: 80px;
     vertical-align: middle;
     margin: 0%;
     padding: 0;
@@ -235,4 +235,8 @@ td {
     vertical-align: tex;
     position: absolute;
     margin-bottom: 100px;
+}
+
+.dailyrow {
+    height: 40px;
 }

@@ -1,11 +1,17 @@
 <h1> <a routerLink="/home"> Weather</a></h1>
 
 
-<section class="top-banner sticky-top" id="top-banner">
-<div class="container" id="searchbar" (keyup.enter)=Submit()>
+<section class="top-banner sticky-top" id="top-banner" (keyup.enter)=Submit()>
+
   <form>
-    <input type="text"   name="username" [(ngModel)]="location" placeholder="Search by Location" autocomplete="off" >
-    <button (click)=Submit()  class="btn btn-outline-secondary" id="submit">SUBMIT</button>
+    <div class="container" id="searchbar" >
+      <div class="searchbar">
+        <input type="text"   name="username" [(ngModel)]="location" placeholder="Search by Location" autocomplete="off" >
+      </div>
+      <div class="searchbutton">
+        <button (click)=Submit()  class="btn btn-outline-secondary" id="submit">SUBMIT</button>
+      </div>
+    </div>  
   </form>  
-</div>
+
 </section>

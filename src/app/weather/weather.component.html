@@ -92,7 +92,7 @@
             </thead>
             <tbody >
                 
-                <tr *ngFor="let i of daily">
+                <tr *ngFor="let i of daily" class="dailyrow">
                     <td id="day">{{countDays(i)}}</td>
                     <td><img id="forecastIcon" src="https://openweathermap.org/img/wn/{{forecastData.daily[i].weather[0].icon}}@2x.png"></td>
                     <td ><div class="minTemp">{{forecastData.daily[i].temp.min.toFixed(0)}}°</div> </td>
