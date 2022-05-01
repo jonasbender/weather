@@ -1,9 +1,7 @@
-
-
 <section class="top-content">
     <div class="container" id="city">
         {{weatherData.name}}, {{weatherData.sys.country}} <br>
-    </div> 
+    </div>
     <div class="container" id="date">
         {{todays}}
     </div>
@@ -13,70 +11,72 @@
 
 
 <section class="content">
-<div class="container">
-<div class="row align-items-center">
-    <div class="column" id="left">
-        <table id="lefttable">
-            <tr>
-                <td>
-                    <img src="https://openweathermap.org/img/wn/{{weatherData.weather[0].icon}}@2x.png">
-                </td>
-                <td>
-                    <div id="temp">{{(weatherData.main.temp).toFixed(0)}}° </div> 
-                    {{weatherData.weather[0].description}}
-                </td>
-            </tr>
-        </table>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="column" id="left">
+                <table id="lefttable">
+                    <tr>
+                        <td>
+                            <img src="https://openweathermap.org/img/wn/{{weatherData.weather[0].icon}}@2x.png">
+                        </td>
+                        <td>
+                            <div id="temp">{{(weatherData.main.temp).toFixed(0)}}° </div>
+                            {{weatherData.weather[0].description}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="column">
+                <table id="table1">
+                    <tr id="data">
+                        <td id="datacol">{{(weatherData.main.temp_max).toFixed(0)}}°</td>
+                        <td id="datacol">{{weatherData.wind.speed.toFixed(1)}} km/h</td>
+                        <td id="datacol">{{sunrise}}</td>
+                    </tr>
+                    <tr id="description">
+                        <td id="desccol">High</td>
+                        <td id="desccol">Wind</td>
+                        <td id="desccol">Sunrise</td>
+                    </tr>
+                    <tr id="data">
+                        <td id="datacol">{{(weatherData.main.temp_min).toFixed(0)}}°</td>
+                        <td id="datacol">{{(forecastData.daily[0].pop*100).toFixed(0)}} %</td>
+                        <td id="datacol">{{sunset}}</td>
+                    </tr>
+                    <tr id="description">
+                        <td id="desccol">Low</td>
+                        <td id="desccol">Chance of Rain</td>
+                        <td id="desccol">Sunset</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class="column">
-        <table id="table1">
-            <tr id="data">
-                <td id="datacol">{{(weatherData.main.temp_max).toFixed(0)}}°</td>
-                <td id="datacol">{{weatherData.wind.speed.toFixed(1)}} km/h</td>
-                <td id="datacol">{{sunrise}}</td>
-            </tr>
-            <tr id="description">
-                <td id="desccol">High</td>
-                <td id="desccol">Wind</td>
-                <td id="desccol">Sunrise</td>
-            </tr>
-            <tr id="data">
-                <td id="datacol">{{(weatherData.main.temp_min).toFixed(0)}}°</td>
-                <td id="datacol">{{(forecastData.daily[0].pop*100).toFixed(0)}} %</td>
-                <td id="datacol">{{sunset}}</td>
-            </tr>
-            <tr id="description">
-                <td id="desccol">Low</td>
-                <td id="desccol">Chance of Rain</td>
-                <td id="desccol">Sunset</td>
-            </tr>
-        </table>
-    </div>
-  </div>
-</div>
 </section>
 
 <section class="hourly">
     <table class="hourly-table">
-    <td>
-        <div class="wrapper">
-            <div>Now</div>
-            <div><img src="https://openweathermap.org/img/wn/{{forecastData.daily[7].weather[0].icon}}@2x.png"></div>
-            <div id="pop">{{(forecastData.hourly[0].pop*100).toFixed(0)}}%</div>
-            <div id="tem">{{forecastData.hourly[0].temp.toFixed(0)}}°</div>
-        </div>
-    </td>   
-    <td *ngFor="let k of hourly">
-        <div class="wrapper">
-            <div id="hours">{{countHours(k)}}:00</div>
-            <div><img src="https://openweathermap.org/img/wn/{{forecastData.hourly[k].weather[0].icon}}@2x.png"></div>
-            <div id="pop" *ngIf="rainCheck(k)">{{(forecastData.hourly[k].pop*100).toFixed(0)}}%</div>
-            <div id="pop" *ngIf="!rainCheck(k)"> &nbsp;</div>
-            
-        <div id="tem">{{forecastData.hourly[k].temp.toFixed(0)}}°</div>
-    </div>
-    </td>
-    </table>    
+        <td>
+            <div class="wrapper">
+                <div>Now</div>
+                <div><img src="https://openweathermap.org/img/wn/{{forecastData.daily[7].weather[0].icon}}@2x.png">
+                </div>
+                <div id="pop">{{(forecastData.hourly[0].pop*100).toFixed(0)}}%</div>
+                <div id="tem">{{forecastData.hourly[0].temp.toFixed(0)}}°</div>
+            </div>
+        </td>
+        <td *ngFor="let k of hourly">
+            <div class="wrapper">
+                <div id="hours">{{countHours(k)}}:00</div>
+                <div><img src="https://openweathermap.org/img/wn/{{forecastData.hourly[k].weather[0].icon}}@2x.png">
+                </div>
+                <div id="pop" *ngIf="rainCheck(k)">{{(forecastData.hourly[k].pop*100).toFixed(0)}}%</div>
+                <div id="pop" *ngIf="!rainCheck(k)"> &nbsp;</div>
+
+                <div id="tem">{{forecastData.hourly[k].temp.toFixed(0)}}°</div>
+            </div>
+        </td>
+    </table>
 
 </section>
 
@@ -88,23 +88,32 @@
     <div class="container">
         <table class="table">
             <thead>
-
             </thead>
-            <tbody >
-                
+            <tbody>
+
                 <tr *ngFor="let i of daily" class="dailyrow">
                     <td id="day">{{countDays(i)}}</td>
-                    <td><img id="forecastIcon" src="https://openweathermap.org/img/wn/{{forecastData.daily[i].weather[0].icon}}@2x.png"></td>
-                    <td ><div class="minTemp">{{forecastData.daily[i].temp.min.toFixed(0)}}°</div> </td>
-                    <td id="bar"><span class="totalbar"></span>
-                        <span class="weatherbar" [style.width.%]="width(i)" [style.margin-left.%]="margin(i)"></span></td>
-                    <td ><div class="maxTemp">{{forecastData.daily[i].temp.max.toFixed(0)}}°</div></td>
+                    <td><img id="forecastIcon"
+                            src="https://openweathermap.org/img/wn/{{forecastData.daily[i].weather[0].icon}}@2x.png">
+                    </td>
+                    <td>
+                        <div class="minTemp">{{forecastData.daily[i].temp.min.toFixed(0)}}°</div>
+                    </td>
+                    <td id="bar">
+                        <div class="bar">
+                            <span class="totalbar"></span>
+                        </div>
+                        <div class="smallbar">
+                            <span class="weatherbar" [style.width.%]="width(i)"
+                                [style.margin-left.%]="margin(i)"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="maxTemp">{{forecastData.daily[i].temp.max.toFixed(0)}}°</div>
+                    </td>
                 </tr>
-                
+
             </tbody>
         </table>
     </div>
 </section>
-
-
-
