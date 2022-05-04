@@ -16,6 +16,9 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (!this.isLightTheme()){
+      document.body.classList.toggle('dark-theme');
+    }
   }
 
 
@@ -26,6 +29,27 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  toggleDarkTheme(): void {
+    document.body.classList.toggle('dark-theme');
+    
+    var darkSwitch = localStorage.getItem("darkSwitch");
+    if(darkSwitch === "dark") {
+      localStorage.setItem("darkSwitch", "light");
+      
+
+    }
+    else {
+      localStorage.setItem("darkSwitch", "dark")
+    }
+  
+    
+    
+ }
+ 
+ isLightTheme() {
+  var darkSwitch = localStorage.getItem("darkSwitch");
+  return !(darkSwitch === "dark");
+}
   
 
   

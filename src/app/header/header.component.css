@@ -1,14 +1,36 @@
 
-h1 {
-    font-weight: bold;
-    font-size: 4rem;
-    letter-spacing: 0.02em;
-    text-align: center;
+#toggleIcon {
+  float: left;
+  color: var(--text-color);
+  margin-top: 5px;
 }
 
+#menu {
+  background-color: var(--bgd-color);
+}
+
+.menutext {
+  margin-left: 10px;
+  margin-top: 3px;
+  float: right;
+  color: var(--text-color);
+}
+
+#headline {
+  margin-top: 20px;
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.material-icons {
+  font-size: 30px;
+}
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+
 a {
-    text-decoration: none;
-    color: black;
+  color: var(--text-color);
+  text-decoration: none;
 }
 
    
@@ -24,12 +46,12 @@ a {
 /* SECTION #1
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   #top-banner {
-    color: var(--text_light);
+    color: var(--text-color);
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #fff;
-    margin-top: 50px;
+    background-color: var(--bgd-color);
+    margin-top: 30px;
     padding-top: 30px;
   }
   
@@ -43,18 +65,31 @@ a {
   }
   
   #top-banner form input::placeholder {
-    color: darkslategrey; 
+    color: var(--text-color); 
   }
 
   .searchbar {
+    caret-color: var(--text-color);
+    color: var(--text-color);
     float: left;
     height: 40px;
     border-bottom: 1px solid;
   }
 
+
+  #submit {
+    color: var(--text-color);
+  }
+
+  #textinput {
+    color: var(--text-color);
+  }
+
   .searchbutton {
     float: left;
     margin-left: 10px;
+    border: 1px solid;
+    border-radius: 5px;
   }
 
 
@@ -67,5 +102,6 @@ a {
       width: 100%;
       margin-top: 10px;
       margin-left: 0px;
+      margin-bottom: 10px;
     }
   }

@@ -1,27 +1,5 @@
 
-  
-  /* SECTION #1
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  .top-banner {
-    color: var(--text_light);
-  }
-  
-  .top-banner form {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .top-banner form input {
-    font-size: 1.5rem;
-    height: 40px;
-    padding: 5px 5px 10px;
-    border-bottom: 1px solid;
-  }
-  
-  .top-banner form input::placeholder {
-    color: grey; 
-  }
+
 
   /* SECTION #2
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -31,18 +9,21 @@
       padding-bottom: 20px;
   }
 
+  div {
+    color: var(--text-color);
+  }
 
 
   /* SECTION #3
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
  #city {
-     color: black;
+    color: var(--text-color);
      font-size: 3rem;
  }
 
  #date {
-     color: black;
+     color: var(--text-color);
      font-size: 1.2rem;
  }
 
@@ -119,6 +100,23 @@ td {
  /* SECTION #4
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+::-webkit-scrollbar {
+    height: 10px;
+    background-color: var(--scroll-bkg);
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-acc);
+    border-radius: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: var(scroll-hov); 
+}
+
   .hourly-item {
     width: 10%;
     text-align: center;
@@ -131,11 +129,12 @@ td {
 
 .hourly-table {
     display: block;
-  overflow-x: scroll;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+    overflow-x: scroll;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    scrollbar-color: var(--slider-color);
 }
 
 .hourly-table tbody {
@@ -192,6 +191,7 @@ td {
   }
 
   #day {
+      color: var(--text-color);
       font-weight: bold;
       vertical-align: middle;
   }
@@ -222,7 +222,7 @@ td {
 .totalbar {
     width: 100%;
     height: 7px;
-    background-color: lightgrey;
+    background-color: var(--slider-color);
     border-radius: 10px;
     position: absolute;
     vertical-align: middle;
@@ -230,7 +230,7 @@ td {
 
 .weatherbar {
     height: 7px;
-    background-color: darkslategray;
+    background-color: var(--slider-acc-color);
     border-radius: 10px;
     vertical-align: text-bottom;
     position: absolute;
