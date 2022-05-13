@@ -89,9 +89,7 @@ export class WeatherComponent implements OnInit {
 
     this.weatherService.getWeather(this.location).subscribe(
       data => {
-        console.log(this.location);
         this.weatherData = data;
-        console.log(this.weatherData);
 
         
         this.sunrise = this.formatDate(this.weatherData.sys.sunrise);
@@ -100,13 +98,9 @@ export class WeatherComponent implements OnInit {
         this.lat = this.weatherData.coord.lat;
         this.long = this.weatherData.coord.lon;
 
-        console.log(this.lat);
-        console.log(this.long);
-
         this.weatherService.getForecast(this.lat, this.long).subscribe(
           data => {
             this.forecastData = data;
-            console.log(this.forecastData);
             
           }
           

@@ -2,12 +2,16 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
-
+<div class="wrapper">
 <div class="container d-flex p-3 mx-auto w-100 flex-column">
 <header class="mb-auto">
+  <div class="logotextwrapper">
+  
   <div class="float-md-start " id="headline">Weather App </div>
+  </div>
   <nav class="nav navbar float-md-end">
     <a class="nav-link active"  routerLink="/home"> Home </a>
+    <a class="nav-link active"  > Map </a>
 
     <div class="nav-link">
       <button class="btn" id="darkModeToggle" (click)="toggleDarkTheme()">
@@ -20,17 +24,5 @@
 </header>
 </div>
 
-<section class="top-banner sticky-top" id="top-banner" (keyup.enter)=Submit()>
 
-  <form>
-    <div class="container" id="searchbar" >
-      <div class="searchbar">
-        <input type="text"   name="location" id="textinput" [(ngModel)]="location" placeholder="Search by Location" autocomplete="off" >
-      </div>
-      <div class="searchbutton">
-        <button (click)=Submit()  class="btn " id="submit">SUBMIT</button>
-      </div>
-    </div>  
-  </form>  
-
-</section>
+</div>

@@ -103,7 +103,7 @@ td {
 ::-webkit-scrollbar {
     height: 10px;
     background-color: var(--scroll-bkg);
-    border-radius: 10px;
+    border-radius: 10;
 }
 
 
@@ -242,3 +242,7 @@ td {
 .dailyrow {
     height: 40px;
 }
+
+
+
+

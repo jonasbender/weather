@@ -1,0 +1,16 @@
+<section class="top-banner sticky-top" id="top-banner" (keyup.enter)=Submit()>
+    <div class="wrapper">
+      <form>
+        <div class="container" id="searchbar" >
+          <div class="searchbar">
+            <input type="text"   name="location" id="textinput" [(ngModel)]="location" placeholder="Search by Location" autocomplete="off" >
+          </div>
+          <div class="searchbutton">
+            <button (click)=Submit()  class="btn " id="submit">SUBMIT</button>
+          </div>
+        </div>  
+      </form>  
+    </div>
+</section>
+
+    

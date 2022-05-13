@@ -1,52 +1,10 @@
 
-#toggleIcon {
-  float: left;
-  color: var(--text-color);
-  margin-top: 5px;
-}
 
-#menu {
-  background-color: var(--bgd-color);
-}
-
-.menutext {
-  margin-left: 10px;
-  margin-top: 3px;
-  float: right;
-  color: var(--text-color);
-}
-
-nav {
-  float: right;
-}
-
-#headline {
-  float: left;
-  margin-left: 20px;
-  color: var(--text-color);
-  font-weight: bold;
-  font-size: xxx-large;
-}
-
-.material-icons {
-  font-size: 30px;
-}
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-
-a {
-  color: var(--text-color);
-  text-decoration: none;
-}
-
-
-.logotextwrapper {
-  align-items: center;
-}
-
-
-
-   
-
+#searchbar::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
 
 /* SECTION #1
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
