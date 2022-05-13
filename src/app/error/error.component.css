@@ -1,0 +1,10 @@
+
+
+
+.error {
+    margin: 12px;
+    height: auto;
+    background-color: yellow;
+    width: fit-content;
+    padding: 10px;
+}

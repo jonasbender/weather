@@ -3,7 +3,7 @@
 <app-search></app-search>
 <app-error *ngIf="invalidCity==true"></app-error>
 
-
+<div class="loadCheck" *ngIf="dataLoaded">
 <div class="wholepagewrapper" *ngIf="invalidCity==false">
 <section class="top-content">
     <div class="container" id="city">
@@ -126,4 +126,5 @@
 </section>
 
 
+</div>
 </div>

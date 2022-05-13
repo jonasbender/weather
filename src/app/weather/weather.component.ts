@@ -23,9 +23,9 @@ export class WeatherComponent implements OnInit {
   public weatherData : any;
   public forecastData : any;
   //public location!: string;
-  errorMessage = "Invalid City! Please try again."
   rainForecast = true;
   invalidCity = false;
+  dataLoaded!: Promise<boolean>;
   today = new Date();
   location!: string;
 
@@ -77,7 +77,7 @@ export class WeatherComponent implements OnInit {
 
   
 
-  ngOnInit(): void {
+  ngOnInit()  {
 
     this.route.queryParams
       .subscribe(params => {
@@ -89,9 +89,10 @@ export class WeatherComponent implements OnInit {
 
     this.weatherService.getWeather(this.location).subscribe(
       data => {
+        this.invalidCity = false;
         this.weatherData = data;
 
-        
+
         this.sunrise = this.formatDate(this.weatherData.sys.sunrise);
         this.sunset = this.formatDate(this.weatherData.sys.sunset);
 
@@ -101,16 +102,16 @@ export class WeatherComponent implements OnInit {
         this.weatherService.getForecast(this.lat, this.long).subscribe(
           data => {
             this.forecastData = data;
-            
-          }
-          
-        )
 
+          }
+
+        );
+        this.dataLoaded = Promise.resolve(true);
       },
       error => {
         this.invalidCity = true;
       }
-    )
+    );
 
     
 
