@@ -6,7 +6,7 @@ import { WeatherComponent } from './weather/weather.component';
 
 const routes: Routes = [
   { path:"", component: HomeComponent},
-  { path:"weather", component: WeatherComponent},
+  { path:"forecast", component: WeatherComponent},
   { path:"home", component: HomeComponent},
   { path:"**" , component: ErrorComponent}
 ];

@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
 
 
   Submit() {
-    this.router.navigate(["weather"], {queryParams: {location:this.location}})
+    this.router.navigate(["forecast"], {queryParams: {location:this.location}})
     .then(() => {
       window.location.reload();
     });
