@@ -13,9 +13,10 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    background-color: var(--bgd-color);
+    background-color: var(--bkg-color);
     margin-top: 30px;
     padding-top: 30px;
+    padding-bottom: 10px;
   }
 
   .wrapper {
