@@ -1,3 +1,4 @@
 # WeatherApp
 
-weather.jonasbender.net
+Preview: 
+https://weather.jonasbender.net/weather/
